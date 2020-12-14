@@ -10,7 +10,7 @@ namespace aoc2020
         public static void Main(string[] args)
         {
             
-            var c1= new D8();
+            var c1= new D142();
             int i =c1.ReturnResult();
 
             
