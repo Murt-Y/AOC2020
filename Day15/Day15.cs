@@ -20,32 +20,31 @@ namespace aoc2020
             }
 
             string[] input = Initialize();
-            SortedList<int,int> Memory = new SortedList<int,int>();
-            int i=0;
-
+            int i=1;
+            int[] Memx= new int [30000000];
             foreach(string w in input)
             {
-                    Memory.Add(Convert.ToInt32(w), i);
+                    Memx[Convert.ToInt32(w)]=i;
                     i++;
             }
 
             int next=0;
-            while (i<30000000)
+            while (i<30000001)
             {
                 
-                if(i==30000000-1)
+                if(i==30000000)
                 {
                     Console.WriteLine(next);
                 }
-                if(Memory.ContainsKey(next)==false)
+                if(Memx[next]==0)
                 {
-                    Memory.Add(next, i);
+                    Memx[next]=i;
                     next=0;
                 }
                 else{
                     int temp=next;
-                    next=i-Memory[next];
-                    Memory[temp]=i;  
+                    next=i-Memx[next];
+                    Memx[temp]=i;  
                 }
                 i++;
             }
